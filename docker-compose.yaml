@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  app:
+    image: meetap/example-api
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: development
+    environment:
+      PORT: 8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
