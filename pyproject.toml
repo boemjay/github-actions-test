@@ -9,19 +9,19 @@ description = "Minimal Poetry example with Docker Multi-Stage builds"
 authors = ["Michael Oliver <mo175@live.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.10"
 
-fastapi = "0.52.0"
-gunicorn = "^20.0.4"
-uvicorn = "^0.11.3"
+fastapi = "^0.78.0"
+gunicorn = "^20.1.0"
+uvicorn = "^0.17.6"
 
 
 [tool.poetry.dev-dependencies]
-pytest = "5.3.5"
-coverage = { version = "5.0.3", extras = ["toml"]}
-black = "^19.10b0"
-isort = { version = "^4.3.21", extras = ["pyproject"]}
-requests = "^2.23.0"
+pytest = "^7.1.2"
+coverage = "^6.4.1"
+black = "^22.3.0"
+isort = { version = "^5.10.1", extras = ["pyproject"]}
+requests = "^2.28.0"
 
 
 [tool.black]
