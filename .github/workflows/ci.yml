@@ -43,4 +43,6 @@ jobs:
         run: poetry run black . --check
 
       - name: Test with pytest
-        run: poetry run pytest --cov . -n 2
+        run: |
+          coverage run --rcfile ./pyproject.toml -m pytest ./tests
+          coverage report --fail-under 95
