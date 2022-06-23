@@ -12,28 +12,23 @@ jobs:
         with:
           fetch-depth: 1
 
-      # - name: Install poetry
-      #   run: pipx install poetry
+      - name: Install poetry
+        run: pipx install poetry
 
-      # - uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.10'
-      #     cache: 'poetry'
-
-      - name: Python Code Style, Quality, and Lint
-        uses: weibullguy/python-lint-plus@v1.8.0
+      - uses: actions/setup-python@v4
         with:
-          python-root-list: 'app tests'
-          use-black: true
-          use-mypy: false
+          python-version: '3.10'
+          cache: 'poetry'
 
-      # - name: Install python dependencies
-      #   run: poetry install --no-interaction --no-root
+      - name: Install python dependencies
+        run: poetry install --no-interaction --no-root
       
-      # - name: Check code quality
-      #   run: poetry run black . --check
+      - name: Check code quality
+        run: |
+          poetry run black app tests --check
+          poetry run isort app tests --check --diff
 
-      # - name: Test with pytest
-      #   run: |
-      #     poetry run coverage run --rcfile ./pyproject.toml -m pytest ./tests
-      #     poetry run coverage report --fail-under 95
+      - name: Test with pytest
+        run: |
+          poetry run coverage run --rcfile ./pyproject.toml -m pytest ./tests
+          poetry run coverage report --fail-under 95
