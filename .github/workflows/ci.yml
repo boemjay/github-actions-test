@@ -25,6 +25,7 @@ jobs:
         with:
           python-root-list: 'app tests'
           use-black: true
+          use-mypy: false
 
       # - name: Install python dependencies
       #   run: poetry install --no-interaction --no-root
